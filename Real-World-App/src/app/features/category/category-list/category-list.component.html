@@ -1,0 +1,34 @@
+<div class="add-button">
+<button type="button" routerLink="/admin/categories/add" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill"
+    viewBox="0 0 16 16">
+    <path
+        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+</svg>AddCategory</button>
+    </div>
+
+
+<div class="main-body">
+    <ng-container *ngIf="categoryList">
+        <table class="table table-bordered mt-4">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>                
+                    <th>UrlHandle</th>
+                    <th>Action</th>                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let category of categoryList">
+                    <td>{{category.id}}</td>
+                    <td>{{category.name}}</td>
+                    <td>{{category.urlHandle}}</td>                  
+                    <td>
+                        <a type="button" class="btn btn-primary"
+                       [routerLink]="['/admin/categories', category.id]" >Edit</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </ng-container>
+</div>

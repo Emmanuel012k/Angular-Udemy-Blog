@@ -1,0 +1,57 @@
+<!-- <div class="form-input">
+    <form #form="ngForm" (ngSubmit)="onFormSubmit()" class="example-form">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Edit Category </label>
+            <input type="text" name="categoryName" class="form-control"
+             id="categoryName" [(ngModel)]="category.name">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">urlHandle</label>
+            <input type="text" name="categoryurlHandle" 
+            class="form-control" id="categoryurlHandle"
+                [(ngModel)]="category.urlHandle">
+        </div>
+        
+    </form>
+</div> -->
+
+
+
+<div class="form-input">
+    <h3>Edit Category</h3>
+    <ng-container *ngIf="modelCategory;else notFound">
+
+        <form #form="ngForm" class="example-form" (ngSubmit)="onFormSubmit()">
+            <!-- <mat-form-field class="example-full-width">
+                <mat-label>Category Name</mat-label>
+                <input matInput type="text" name="CategoryName" id="CategoryName" [(ngModel)]="category.name">
+            </mat-form-field> -->
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Edit Category </label>
+                <input type="text" name="categoryName" class="form-control" id="categoryName"
+                 [(ngModel)]="modelCategory.name">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">urlHandle</label>
+                <input type="text" name="categoryurlHandle" class="form-control" id="categoryurlHandle"
+                    [(ngModel)]="modelCategory.urlHandle">
+            </div>
+            
+<!-- 
+            <mat-form-field class="example-full-width">
+                <mat-label>Category Url Handle</mat-label>
+                <input matInput type="text" name="categoryUrlHandle" id="categoryUrlHandle"
+                    [(ngModel)]="category.urlHandle">
+            </mat-form-field> -->
+        <button type="submit" class="btn btn-primary">UpdATE</button>
+            &nbsp;
+            <button mat-raised-button type="submit" class="btn btn-danger" (click)="onDelete()">Delete</button>
+        </form>
+    </ng-container>
+
+    <ng-template #notFound>
+        Category not found!
+    </ng-template>
+
+</div>
+  
