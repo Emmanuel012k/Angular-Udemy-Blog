@@ -1,0 +1,42 @@
+<div class="add-button">
+    <button type="button" routerLink="/admin/addblogposts" class="btn btn-primary"><svg
+            xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill"
+            viewBox="0 0 16 16">
+            <path
+                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+        </svg>Add BlogPost</button>
+</div>
+
+
+<div class="main-body">
+    <ng-container *ngIf="blogPosts">
+        <table class="table table-bordered mt-4">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>shortDescription</th>
+                    <th>categories</th>
+                    <th>Is Visible</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let blogPost of blogPosts">
+                    <td>{{blogPost.title}}</td>
+                    <td>{{blogPost.shortDescription}}</td>
+                    <td *ngFor="let category of blogPost.categories">
+                        <span class="badge bg-secondary m-2">{{category.name}}</span>
+                    </td>
+                     <td>{{blogPost.isVisible}}</td>
+                    <td>
+                        <a type="button" class="btn btn-primary"
+                           [routerLink]="['/admin/blogposts', blogPost.id]" >Edit</a>
+                            <!--  -->
+                   <!-- <button type="submit" class="btn btn-danger" (click)="onDelete()">Delete</button> -->
+              <!-- <button type="submit" (click)="onDelete()" class="btn btn-primary">Delete</button> -->
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </ng-container>
+</div>
